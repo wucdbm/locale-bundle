@@ -55,7 +55,7 @@ class Locale {
     }
 
     /**
-     * @return mixed
+     * @return boolean
      */
     public function getIsEnabled() {
         return $this->isEnabled;

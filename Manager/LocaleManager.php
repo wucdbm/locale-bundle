@@ -30,6 +30,9 @@ class LocaleManager extends AbstractManager {
         }
     }
 
+    /**
+     * @return string
+     */
     public function getCurrentLocale() {
         if ($this->container->has('request_stack')) {
             $stack = $this->container->get('request_stack');
@@ -41,6 +44,9 @@ class LocaleManager extends AbstractManager {
         return $this->container->getParameter('locale');
     }
 
+    /**
+     * @return mixed|null|string
+     */
     public function getPreferredLocale() {
         // return default locale if no request stack
         if (!$this->container->has('request_stack')) {
@@ -144,7 +150,10 @@ class LocaleManager extends AbstractManager {
         return isset($this->locales[$locale]) ? $this->locales[$locale] : null;
     }
 
-
+    /**
+     * @param $locale
+     * @return bool
+     */
     public function isLocaleEnabled($locale) {
         if (!$this->supportsLocale($locale)) {
             return false;
