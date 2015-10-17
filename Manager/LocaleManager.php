@@ -3,6 +3,7 @@
 namespace Wucdbm\Bundle\LocaleBundle\Manager;
 
 use Symfony\Component\HttpFoundation\Request;
+use Wucdbm\Bundle\LocaleBundle\Locale\Locale;
 use Wucdbm\Bundle\WucdbmBundle\Manager\AbstractManager;
 
 /**
@@ -21,19 +22,28 @@ class LocaleManager extends AbstractManager {
     /**
      * @var array
      */
-    protected $locales;
+    protected $locales = [];
 
-    public function __construct($locales, $defaultLocale) {
-        $this->locales       = $locales;
+    protected $cookieName = null;
+
+    public function __construct($config, $defaultLocale) {
+        foreach ($config['locales'] as $locale => $data) {
+            $this->locales[$locale] = new Locale($locale, $data['name'], $data['enabled'], $data['currency']);
+        }
         $this->defaultLocale = $defaultLocale;
+        if (isset($config['cookie_listener']) && $config['cookie_listener']['enabled']) {
+            $this->cookieName = $config['cookie_listener']['name'];
+        }
     }
 
     public function getCurrentLocale() {
         if ($this->container->has('request_stack')) {
-            $stack   = $this->container->get('request_stack');
+            $stack = $this->container->get('request_stack');
             $request = $stack->getCurrentRequest();
+
             return $request->attributes->get('_locale');
         }
+
         return $this->container->getParameter('locale');
     }
 
@@ -43,12 +53,20 @@ class LocaleManager extends AbstractManager {
             return $this->getDefaultLocale();
         }
 
-        $stack   = $this->container->get('request_stack');
+        $stack = $this->container->get('request_stack');
         $request = $stack->getCurrentRequest();
 
         // return default locale if there isn't any current request
         if (!($request instanceof Request)) {
             return $this->getDefaultLocale();
+        }
+
+        // If cookie listener is enabled
+        if ($this->cookieName) {
+            $cookieLocale = $request->cookies->get($this->cookieName);
+            if ($cookieLocale && $this->supportsLocale($cookieLocale)) {
+                return $cookieLocale;
+            }
         }
 
         // because if the browser sent no locale headers, $request->getPreferredLanguage would return the first of the $locales parameter
@@ -82,6 +100,7 @@ class LocaleManager extends AbstractManager {
             if (isset($preferredLanguages[0])) {
                 return $preferredLanguages[0];
             }
+
             return $defaultLocale ?: null;
         }
 
@@ -127,6 +146,7 @@ class LocaleManager extends AbstractManager {
         if (!$this->supportsLocale($locale)) {
             return false;
         }
+
         return $this->locales[$locale]['enabled'];
     }
 

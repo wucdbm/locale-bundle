@@ -19,8 +19,12 @@ class WucdbmLocaleExtension extends Extension {
         );
 
         $bag = $container->getParameterBag();
+
+        $bag->set('wucdbm_locale.config', $config);
+
         $locales = $config['locales'];
         $localesSimple = array_keys($locales);
+
         $bag->set('wucdbm_locale.locales', $locales);
         $bag->set('wucdbm_locale.locales_simple', $localesSimple);
 

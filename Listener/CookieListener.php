@@ -32,7 +32,7 @@ class CookieListener implements EventSubscriberInterface {
 
     public function setLocale(FilterResponseEvent $event) {
         $request = $event->getRequest();
-        $localeCookie = $request->cookies->get('locale');
+        $localeCookie = $request->cookies->get($this->name);
         $currentLocale = $request->getLocale();
 
         if ($localeCookie == $currentLocale) {

@@ -5,7 +5,7 @@
     <services>
 
         <service id="wucdbm_locale.manager.locales" class="Wucdbm\Bundle\LocaleBundle\Manager\LocaleManager" parent="wucdbm.manager.abstract">
-            <argument>%wucdbm_locale.locales%</argument>
+            <argument>%wucdbm_locale.config%</argument>
             <argument>%locale%</argument>
         </service>
 
