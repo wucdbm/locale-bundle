@@ -13,8 +13,6 @@ class WucdbmLocaleExtension extends Extension {
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        var_dump($config);
-
         $loader = new XmlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
