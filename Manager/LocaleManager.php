@@ -6,12 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Wucdbm\Bundle\LocaleBundle\Locale\Locale;
 use Wucdbm\Bundle\WucdbmBundle\Manager\AbstractManager;
 
-/**
- * TODO: Integrate locale listener into the bundle and use the cookie in getPreferredLanguage
- * Class LocaleManager
- *
- * @package App\Manager
- */
 class LocaleManager extends AbstractManager {
 
     /**
