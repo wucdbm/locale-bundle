@@ -15,19 +15,19 @@ class CookieListener implements EventSubscriberInterface {
 
     protected $path = '/';
 
-    public function __construct($name = null, $duration = null, $path = null) {
+    public function __construct($config) {
         $this->duration = 60 * 60 * 24 * 365;
 
-        if ($name) {
-            $this->name = $name;
+        if ($config['name']) {
+            $this->name = $config['name'];
         }
 
-        if ($duration) {
-            $this->duration = $duration;
+        if ($config['duration']) {
+            $this->duration = $config['duration'];
         }
 
-        if ($path) {
-            $this->path = $path;
+        if ($config['path']) {
+            $this->path = $config['path'];
         }
     }
 

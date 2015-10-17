@@ -28,14 +28,14 @@ class DisabledLocaleRedirectListener implements EventSubscriberInterface {
      */
     protected $isDebug;
 
-    protected $useDefaultLocale = false;
+    protected $usePreferredLocale = false;
 
-    public function __construct(Router $router, LocaleManager $manager, $isDebug, $useDefaultLocale = null) {
+    public function __construct(Router $router, LocaleManager $manager, $isDebug, $config) {
         $this->router = $router;
         $this->manager = $manager;
         $this->isDebug = $isDebug;
-        if (null !== $useDefaultLocale) {
-            $this->useDefaultLocale = $useDefaultLocale;
+        if (isset($config['use_preferred_locale'])) {
+            $this->usePreferredLocale = $config['use_preferred_locale'];
         }
     }
 
@@ -78,7 +78,7 @@ class DisabledLocaleRedirectListener implements EventSubscriberInterface {
         }
 
         $params = array_replace_recursive($request->attributes->get('_route_params', []), [
-            '_locale' => $this->useDefaultLocale ? $this->manager->getDefaultLocale() : $this->manager->getPreferredLocale()
+            '_locale' => $this->usePreferredLocale ? $this->manager->getPreferredLocale() : $this->manager->getDefaultLocale()
         ]);
 
         // generate a url for the same route with the same params, but with the default locale

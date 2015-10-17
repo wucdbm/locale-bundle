@@ -4,9 +4,9 @@
 
     <services>
 
-        <service id="app.listener.locale" class="Wucdbm\Bundle\LocaleBundle\Listener\CookieListener">
-            <tag name="kernel.event_subscriber"/>
-            <argument>%wucdbm_locale.cookie_listener%</argument>
+        <service id="wucdbm_locale.manager.locales" class="App\Manager\LocaleManager" parent="wucdbm.manager.abstract">
+            <argument>%wucdbm_locale.locales%</argument>
+            <argument>%locale%</argument>
         </service>
 
     </services>
