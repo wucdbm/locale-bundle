@@ -144,7 +144,7 @@ class LocaleManager extends AbstractManager {
 
     /**
      * @param $locale
-     * @return Locale
+     * @return Locale|null
      */
     public function getLocale($locale) {
         return isset($this->locales[$locale]) ? $this->locales[$locale] : null;
