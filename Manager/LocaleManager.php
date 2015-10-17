@@ -128,20 +128,36 @@ class LocaleManager extends AbstractManager {
         return $defaultLocale ?: $locales[0];
     }
 
+    /**
+     * @param $locale
+     * @return bool
+     */
     public function supportsLocale($locale) {
         return isset($this->locales[$locale]);
     }
 
+    /**
+     * @param $locale
+     * @return Locale
+     */
     public function getLocale($locale) {
         return isset($this->locales[$locale]) ? $this->locales[$locale] : null;
     }
+
 
     public function isLocaleEnabled($locale) {
         if (!$this->supportsLocale($locale)) {
             return false;
         }
 
-        return $this->locales[$locale]['enabled'];
+        if (!isset($this->locales[$locale])) {
+            return false;
+        }
+
+        /** @var Locale $object */
+        $object = $this->locales[$locale];
+
+        return $object->getIsEnabled();
     }
 
     /**
@@ -149,6 +165,13 @@ class LocaleManager extends AbstractManager {
      */
     public function getLocales() {
         return $this->locales;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLocalesSimple() {
+        return array_keys($this->locales);
     }
 
     /**
