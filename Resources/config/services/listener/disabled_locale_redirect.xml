@@ -4,10 +4,11 @@
 
     <services>
 
-        <service id="app.listener.locale" class="Wucdbm\Bundle\LocaleBundle\Listener\CookieListener">
+        <service id="app.listener.locale" class="Wucdbm\Bundle\LocaleBundle\Listener\DisabledLocaleRedirectListener">
             <tag name="kernel.event_subscriber"/>
             <argument type="service" id="router"/>
             <argument type="service" id="wucdbm_locale.manager.locales"/>
+            <argument>%kernel.debug%</argument>
             <argument>%wucdbm_locale.cookie_listener%</argument>
         </service>
 

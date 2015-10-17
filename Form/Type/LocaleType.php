@@ -43,7 +43,7 @@ class LocaleType extends AbstractType {
      * @return string
      */
     public function getName() {
-        return 'app_locale';
+        return 'wucdbm_locale';
     }
 
 }

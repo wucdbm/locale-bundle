@@ -9,26 +9,16 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class CookieListener implements EventSubscriberInterface {
 
-    protected $name = 'locale';
+    protected $name;
 
     protected $duration;
 
-    protected $path = '/';
+    protected $path;
 
     public function __construct($config) {
-        $this->duration = 60 * 60 * 24 * 365;
-
-        if ($config['name']) {
-            $this->name = $config['name'];
-        }
-
-        if ($config['duration']) {
-            $this->duration = $config['duration'];
-        }
-
-        if ($config['path']) {
-            $this->path = $config['path'];
-        }
+        $this->name = $config['name'];
+        $this->duration = $config['duration'];
+        $this->path = $config['path'];
     }
 
     public static function getSubscribedEvents() {

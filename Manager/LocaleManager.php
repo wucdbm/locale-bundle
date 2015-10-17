@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Wucdbm\Bundle\WucdbmBundle\Manager\AbstractManager;
 
 /**
- * TODO: WucdbmLocaleBundle
  * TODO: Integrate locale listener into the bundle and use the cookie in getPreferredLanguage
  * Class LocaleManager
  *
@@ -114,18 +113,6 @@ class LocaleManager extends AbstractManager {
         }
 
         return $defaultLocale ?: $locales[0];
-    }
-
-    // TODO: 32fly specific, extend this manager and overwrite
-    public function getDatepickerLocale() {
-        $locale = $this->getCurrentLocale();
-        if ('en' == $locale) {
-            return 'en-GB';
-        }
-        if ('zh' == $locale) {
-            return 'zh-CN';
-        }
-        return str_replace('_', '-', $locale);
     }
 
     public function supportsLocale($locale) {

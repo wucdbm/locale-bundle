@@ -21,7 +21,10 @@ class WucdbmLocaleExtension extends Extension {
         );
 
         $bag = $container->getParameterBag();
-        $bag->set('wucdbm_locale.locales', $config['locales']);
+        $locales = $config['locales'];
+        $localesSimple = array_keys($locales);
+        $bag->set('wucdbm_locale.locales', $locales);
+        $bag->set('wucdbm_locale.locales_simple', $localesSimple);
 
         $loader->load('services/managers.xml');
 
@@ -34,6 +37,12 @@ class WucdbmLocaleExtension extends Extension {
             $bag->set('wucdbm_locale.disabled_locale_redirect_listener', $config['disabled_locale_redirect_listener']);
             $loader->load('services/listener/disabled_locale_redirect.xml');
         }
+
+        if (isset($config['jms_integration']) && $config['jms_integration']) {
+            $bag->set('jms_translation.locales', $localesSimple);
+        }
+
+        $bag->set('wucdbm_locale.locales_enabled.routing', implode('|', $localesSimple));
     }
 
     /**
