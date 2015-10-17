@@ -4,9 +4,9 @@
 
     <services>
 
-        <service id="app.form.type.wucdbm_locale" class="Wucdbm\Bundle\LocaleBundle\Form\Type\LocaleType">
+        <service id="app.form.type.wucdbm_locale_choice" class="Wucdbm\Bundle\LocaleBundle\Form\Type\LocaleChoiceType">
             <argument type="service" id="wucdbm_locale.manager.locales"/>
-            <tag name="form.type" alias="wucdbm_locale"/>
+            <tag name="form.type" alias="wucdbm_locale_choice"/>
         </service>
 
     </services>
