@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36a481ae-2320-46ff-8452-7f6dc60cd514" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DependencyInjection/Configuration.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Listener/CookieListener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Listener/DisabledLocaleRedirectListener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Locale/Locale.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Listener/LocaleListener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Manager/LocaleManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/Type/LocaleType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WucdbmLocaleBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DependencyInjection/WucdbmLocaleExtension.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/config/services/listener/cookie.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/config/services/listener/disabled_locale_redirect.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/composerJson.xml" />
     </list>
     <ignored path="locale-bundle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Configuration.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Configuration.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DependencyInjection/Configuration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2591362">
+              <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -73,6 +74,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/WucdbmLocaleBundle.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -264,6 +266,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2591362">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,17 @@
+{
+    "name": "wucdbm/locale-bundle",
+    "type": "symfony-bundle",
+    "description": "Simple locale management for Symfony2",
+    "keywords": ["wucdbm"],
+    "authors": [
+        {
+            "name": "Martin Kirilov",
+            "email": "wucdbm@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Wucdbm\\Bundle\\LocaleBundle\\": "" }
+    },
+    "license": "GPL-3.0"
+}
