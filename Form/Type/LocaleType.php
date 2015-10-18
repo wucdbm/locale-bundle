@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class LocaleType extends AbstractType {
 
@@ -17,7 +18,11 @@ class LocaleType extends AbstractType {
                     'placeholder' => 'Locale'
                 ],
                 'constraints' => [
-                    new NotBlank()
+                    new NotBlank(),
+                    new Regex([
+                        'message' => 'Invalid locale name',
+                        'pattern' => '/^[a-z0-9@_\\.\\-]*$/i'
+                    ])
                 ]
             ])
             ->add('name', 'text', [
