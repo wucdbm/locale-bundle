@@ -29,6 +29,7 @@ class WucdbmLocaleExtension extends Extension {
         $bag->set('wucdbm_locale.locales_simple', $localesSimple);
 
         $loader->load('services/managers.xml');
+        $loader->load('services/forms.xml');
 
         if (isset($config['cookie_listener']) && $config['cookie_listener']['enabled']) {
             $bag->set('wucdbm_locale.cookie_listener', $config['cookie_listener']);
