@@ -36,7 +36,7 @@ class WucdbmLocaleExtension extends Extension {
             $loader->load('services/listener/cookie.xml');
         }
 
-        if (isset($config['disabled_locale_redirect_listener']) && $config['cookie_listener']['enabled']) {
+        if (isset($config['disabled_locale_redirect_listener']) && $config['disabled_locale_redirect_listener']['enabled']) {
             $bag->set('wucdbm_locale.disabled_locale_redirect_listener', $config['disabled_locale_redirect_listener']);
             $loader->load('services/listener/disabled_locale_redirect.xml');
         }
